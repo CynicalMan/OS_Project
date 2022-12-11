@@ -6,6 +6,8 @@ This problem occurs when many threads of execution try to access the same shared
 
 ## Pseudocode Solution
 
+This pseudocode solution solves all the possible deadlocks and starvation problems that could arise from the Reader-Writer problem. A solution that uses a queue for fairness for both readers and writers will be as follows:
+
 ```pseudo
 
 int readcount;                // init to 0; number of readers currently accessing resource
@@ -18,36 +20,76 @@ semaphore serviceQueue;       // FAIRNESS: preserves ordering of requests (signa
 //READER
 reader() {
     <ENTRY Section>
-    serviceQueue.P();           // wait in line to be serviced
-    rmutex.P();                 // request exclusive access to readcount
+    wait(serviceQueue);           // wait in line to be serviced
+    wait(rmutex);                 // request exclusive access to readcount
     readcount++;                // update count of active readers
     if (readcount == 1)         // if I am the first reader
-        resource.P();             // request resource access for readers (writers blocked)
-    serviceQueue.V();           // let next in line be serviced
-    rmutex.V();                 // release access to readcount
+        wait(resource);             // request resource access for readers (writers blocked)
+    signal(serviceQueue);           // let next in line be serviced
+    signal(rmutex);                 // release access to readcount
     
     <CRITICAL Section>
     //reading is performed
     
     <EXIT Section>
-    rmutex.P();                 // request exclusive access to readcount
+    wait(rmutex);                 // request exclusive access to readcount
     readcount--;                // update count of active readers
     if (readcount == 0)         // if there are no readers left
-      resource.V();             // release resource access for all
-    rmutex.V();                 // release access to readcount
+      signal(resource);              // release resource access for all
+    signal(rmutex);                // release access to readcount
 }
 
 //WRITER
 writer() {
     <ENTRY Section>
-      serviceQueue.P();           // wait in line to be serviced
-      resource.P();               // request exclusive access to resource
-      serviceQueue.V();           // let next in line be serviced
+      wait(serviceQueue);           // wait in line to be serviced
+      wait(resource);                // request exclusive access to resource
+      signal(serviceQueue);           // let next in line be serviced
 
     <CRITICAL Section>
     // writing is performed
 
     <EXIT Section>
-      resource.V();               // release resource access for next reader/writer
+      signal(resource);             // release resource access for next reader/writer
 }
 ```
+## Deadlocks in the Readers-Writers Problem:
+
+### Examples of deadlocks
+
+-- two or more writers write to the same resource at the same time.
+
+-- reader and writer access the same resource at the same time.
+
+### solution for the deadlocks
+
+The deadlocks are solved using an exclusive lock for the resource (Semaphore).
+
+## Starvation in the Readers-Writers Problem:
+
+### Examples of starvation
+
+-- in the first variation of the reader-writer problem where no reader kept waiting unless the writer has permission to use a shared object therefore writer will starve.
+
+-- in the second variation of the reader-writer problem where once a writer is ready, it performs the write. In other words, if a writer is waiting to access the object, no new readers may start reading therefore the reader will starve.
+
+### solution for starvation
+
+The starvation is solved using a queue that preserves ordering of requests (signaling must be FIFO)
+
+# Real-World Application : University Grading System 
+
+lor oih h hoi hph uig uipgu giug up gug ui gu gu gpu goh ji io ooierjj oierj erj oij oeirj oierj oierjji joej roi jeroi jeri hroi jroijdo jij jj ot jh w
+hwthwio twho hwtohwoth woeth wh tow howeh oweh owhe ohweo hwoeh  ewhweo hwo hwthwio twho hwtohwoth woeth wh tow howeh oweh owhe ohweo hwoeh  ewhweo hwo
+hwthwio twho hwtohwoth woeth wh tow howeh oweh owhe ohweo hwoeh  ewhweo hwo hwthwio twho hwtohwoth woeth wh tow howeh oweh owhe ohweo hwoeh  ewhweo hwo
+hwthwio twho hwtohwoth woeth wh tow howeh oweh owhe ohweo hwoeh  ewhweo hwo hwthwio twho hwtohwoth woeth wh tow howeh oweh owhe ohweo hwoeh  ewhweo hwo
+
+
+
+
+
+
+
+
+
+
