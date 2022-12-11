@@ -57,11 +57,11 @@ writer() {
 
 ### Examples of deadlocks
 
--- two or more writers write to the same resource at the same time.
+ * Two or more writers write to the same resource at the same time.
 
--- reader and writer access the same resource at the same time.
+ * Reader and writer access the same resource at the same time.
 
-### solution for the deadlocks
+### Solution for the deadlocks
 
 The deadlocks are solved using an exclusive lock for the resource (Semaphore).
 
@@ -69,11 +69,11 @@ The deadlocks are solved using an exclusive lock for the resource (Semaphore).
 
 ### Examples of starvation
 
--- in the first variation of the reader-writer problem where no reader kept waiting unless the writer has permission to use a shared object therefore writer will starve.
+ * In the first variation of the reader-writer problem where no reader kept waiting unless the writer has permission to use a shared object therefore writer will starve.
 
--- in the second variation of the reader-writer problem where once a writer is ready, it performs the write. In other words, if a writer is waiting to access the object, no new readers may start reading therefore the reader will starve.
+ * In the second variation of the reader-writer problem where once a writer is ready, it performs the write. In other words, if a writer is waiting to access the object, no new readers may start reading therefore the reader will starve.
 
-### solution for starvation
+### Solution for starvation
 
 The starvation is solved using a queue that preserves ordering of requests (signaling must be FIFO)
 
