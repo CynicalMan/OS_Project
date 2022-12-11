@@ -6,7 +6,7 @@ This problem occurs when many threads of execution try to access the same shared
 
 ## Pseudocode Solution
 
-```
+```java
 
 int readcount;                // init to 0; number of readers currently accessing resource
 
