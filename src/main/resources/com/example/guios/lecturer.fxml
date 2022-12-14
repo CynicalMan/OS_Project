@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.guios.HelloApplication">
+   <children>
+      <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn id="id" prefWidth="30.20001184940338" text="ID" />
+          <TableColumn id="name" prefWidth="129.79998207092285" text="Name" />
+            <TableColumn id="subjects" prefWidth="521.4000549316406" text="Subjects">
+               <columns>
+                  <TableColumn minWidth="0.0" prefWidth="84.20001220703125" text="Column X" />
+                  <TableColumn prefWidth="88.5999755859375" text="Column X" />
+                  <TableColumn prefWidth="90.60003662109375" text="Column X" />
+                  <TableColumn prefWidth="79.79998779296875" text="Column X" />
+                  <TableColumn prefWidth="100.20004272460938" text="Column X" />
+               </columns></TableColumn>
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
+
