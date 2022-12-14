@@ -1,4 +1,4 @@
-package GradingSystem;
+package src.GradingSystem;
 
 public class Lecturer {
     private String name;
