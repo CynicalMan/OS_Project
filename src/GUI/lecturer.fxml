@@ -11,14 +11,13 @@
                 <TableColumn id="name" prefWidth="129.79998207092285" text="Name" />
                 <TableColumn id="subjects" prefWidth="521.4000549316406" text="Subjects">
                     <columns>
-                        <TableColumn minWidth="0.0" prefWidth="84.20001220703125" text="Column X" />
-                        <TableColumn prefWidth="88.5999755859375" text="Column X" />
-                        <TableColumn prefWidth="90.60003662109375" text="Column X" />
-                        <TableColumn prefWidth="79.79998779296875" text="Column X" />
-                        <TableColumn prefWidth="100.20004272460938" text="Column X" />
+                        <TableColumn minWidth="0.0" prefWidth="84.20001220703125" text="SUBJ 1" />
+                        <TableColumn prefWidth="88.5999755859375" text="SUBJ 2" />
+                        <TableColumn prefWidth="90.60003662109375" text="SUBJ 3" />
+                        <TableColumn prefWidth="79.79998779296875" text="SUBJ 4" />
+                        <TableColumn prefWidth="100.20004272460938" text="SUBJ 5" />
                     </columns></TableColumn>
             </columns>
         </TableView>
     </children>
 </AnchorPane>
-
