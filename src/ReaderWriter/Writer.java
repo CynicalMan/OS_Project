@@ -1,6 +1,5 @@
 package ReaderWriter;
 
-import ReaderWriter.VariablesGlob;
 
 class Writer implements Runnable {
     @Override
@@ -11,8 +10,8 @@ class Writer implements Runnable {
             System.out.println("Thread "+Thread.currentThread().getName() + " is WRITING");
             Thread.sleep(2500);
             System.out.println("Thread "+Thread.currentThread().getName() + " has finished WRITING");
-            VariablesGlob.serviceQueue.release();
             VariablesGlob.resource.release();
+            VariablesGlob.serviceQueue.release();
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }

@@ -1,6 +1,6 @@
 package GradingSystem;
 
-public class Subject {
+public class Course {
     private int id;
     private String name;
     private int creditHours;

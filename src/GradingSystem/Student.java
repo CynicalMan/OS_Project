@@ -1,14 +1,6 @@
 package GradingSystem;
 
 
-
-enum Major {
-    IT,
-    CS,
-    IS
-}
-
-
 //enum Minor {
 //    IT,
 //    CS,
@@ -23,28 +15,13 @@ public class Student {
     private int id;
     private String password;
     private int year;
-    private Major major;
+    private String major;
 //    private Minor minor;
 
     //setters
-    public void setPassword(String password) {
-            this.password = password;
-    }
 
     public void setGpa(double gpa) {
         this.gpa = gpa;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setMajor(Major major) {
-        this.major = major;
     }
 
     //getters
@@ -64,15 +41,14 @@ public class Student {
         return id;
     }
 
-    public Major getMajor() {
+    public String getMajor() {
         return major;
     }
-
     public String getPassword() {
         return password;
     }
 
-    public int getSubjectGrade(RegisteredSubject reSub){
+    public int getSubjectGrade(RegisteredCoursse reSub){
         return reSub.getGrade();
     }
 }

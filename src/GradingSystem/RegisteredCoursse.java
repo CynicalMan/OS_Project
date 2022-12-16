@@ -1,11 +1,11 @@
 package GradingSystem;
 
-public class RegisteredSubject {
+public class RegisteredCoursse {
 
     private int id;
     private int grade;
     private Student stud;
-    private Subject sub;
+    private Course sub;
 
     public int getGrade() {
         return grade;
@@ -15,7 +15,7 @@ public class RegisteredSubject {
         return stud;
     }
 
-    public Subject getSub() {
+    public Course getSub() {
         return sub;
     }
 
@@ -27,7 +27,7 @@ public class RegisteredSubject {
         this.stud = stud;
     }
 
-    public void setSub(Subject sub) {
+    public void setSub(Course sub) {
         this.sub = sub;
     }
 

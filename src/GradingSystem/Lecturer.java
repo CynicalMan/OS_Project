@@ -1,15 +1,12 @@
 package GradingSystem;
 
 public class Lecturer {
+    private int id;
     private String name;
     private String password;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -20,7 +17,7 @@ public class Lecturer {
         return password;
     }
 
-    public void updateGrade(int grade,RegisteredSubject reSub) {
+    public void updateGrade(int grade, RegisteredCoursse reSub) {
        reSub.setGrade(grade);
     }
 
