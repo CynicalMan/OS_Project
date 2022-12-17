@@ -3,16 +3,6 @@ package ReaderWriter;
 
 
 public class Main {
-//    public static void main(String[] args) {
-//        //Shared message object between Reader and Writer threads.
-//        Message message = new Message();
-//
-//        Thread readerThread = new Thread(new Reader1(message));
-//        Thread writerThread = new Thread(new Writer1(message));
-//
-//        readerThread.start();
-//        writerThread.start();
-//    }
     public static void main(String[] args) {
         Reader read = new Reader();
         Writer write = new Writer();
