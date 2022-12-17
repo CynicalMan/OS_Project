@@ -13,16 +13,16 @@ public class Main {
 //        readerThread.start();
 //        writerThread.start();
 //    }
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Reader read = new Reader();
         Writer write = new Writer();
-        Thread t1 = new Thread(write);
+        Thread t1 = new Thread(read);
         t1.setName("thread1");
-        Thread t2 = new Thread(read);
+        Thread t2 = new Thread(write);
         t2.setName("thread2");
-        Thread t3 = new Thread(write);
+        Thread t3 = new Thread(read);
         t3.setName("thread3");
-        Thread t4 = new Thread(read);
+        Thread t4 = new Thread(write);
         t4.setName("thread4");
         Thread t5 = new Thread(read);
         t5.setName("thread5");

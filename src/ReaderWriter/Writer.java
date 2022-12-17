@@ -8,6 +8,8 @@ class Writer implements Runnable {
             VariablesGlob.serviceQueue.acquire();
             VariablesGlob.resource.acquire();
             System.out.println("Thread "+Thread.currentThread().getName() + " is WRITING");
+            VariablesGlob.sm++;
+            System.out.println("Thread "+Thread.currentThread().getName() + " sm updated to " + VariablesGlob.sm );
             Thread.sleep(2500);
             System.out.println("Thread "+Thread.currentThread().getName() + " has finished WRITING");
             VariablesGlob.resource.release();
