@@ -111,6 +111,8 @@ public class Student implements Login, Serializable, RManager {
         Thread read = new Thread(rm);
         read.setName("threadRead to student");
         read.start();
+        //wait till thread is dead
+        while(read.isAlive()) {}
         if (rm.getRes() == null){
             System.out.println("Cant read from student file");
         }else{
@@ -123,6 +125,8 @@ public class Student implements Login, Serializable, RManager {
         Thread write = new Thread(wm);
         write.setName("threadWrite to student");
         write.start();
+        //wait till thread is dead
+        while(write.isAlive()) {}
         return  wm.isWritten();
     }
 }

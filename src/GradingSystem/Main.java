@@ -1,7 +1,7 @@
 package GradingSystem;
 
 import java.io.File;
-
+import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
@@ -10,30 +10,38 @@ public class Main {
         File currentDir = new File(projectPath);
         checkDirectoryContents(currentDir);
 
-        Lecturer lecturer1 = new Lecturer();
-        lecturer1.addLecturer();
-        Course c1 = new Course(1,"OS2",lecturer1, 3);
-        c1.addCourse();
-        Student student1 = new Student();
-        student1.addStudent();
-        Student student2 = new Student();
-        student2.addStudent();
-        Student student3 = new Student();
-        student3.addStudent();
-        Student student4 = new Student();
-        student4.addStudent();
-        Student student5 = new Student();
-        student5.addStudent();
-        RegisteredCourses rg1 = new RegisteredCourses();
-        rg1.addRegisteredCourse();
-        RegisteredCourses rg2 = new RegisteredCourses();
-        rg2.addRegisteredCourse();
-        RegisteredCourses rg3 = new RegisteredCourses();
-        rg3.addRegisteredCourse();
-        RegisteredCourses rg4 = new RegisteredCourses();
-        rg4.addRegisteredCourse();
-        RegisteredCourses rg5 = new RegisteredCourses();
-        rg5.addRegisteredCourse();
+//        Lecturer lecturer1 = new Lecturer(1,"Dr. Ahmed","12345678");
+//        lecturer1.addLecturer();
+//        Course c1 = new Course(1,"OS2",lecturer1, 3);
+//        c1.addCourse();
+//        Student student1 = new Student(2.8, "Youssef", 1, "abcdefgh", 3, "CS");
+//        student1.addStudent();
+//        Student student2 = new Student(3, "Mohammed", 2, "qwertyui", 3, "IS");
+//        student2.addStudent();
+//        Student student3 = new Student(3.2, "Saaed", 3, "asdfghjk", 3, "IT");
+//        student3.addStudent();
+//        Student student4 = new Student(3.4, "Amr", 4, "zxcvbnmm", 3, "CS");
+//        student4.addStudent();
+//        Student student5 = new Student(3.6, "Omar", 5, "poiuytre", 3, "IS");
+//        student5.addStudent();
+//        RegisteredCourses rg1 = new RegisteredCourses(1, 77, student1, c1);
+//        rg1.addRegisteredCourse();
+//        RegisteredCourses rg2 = new RegisteredCourses(2,80,student2,c1);
+//        rg2.addRegisteredCourse();
+//        RegisteredCourses rg3 = new RegisteredCourses(3,86,student3,c1);
+//        rg3.addRegisteredCourse();
+//        RegisteredCourses rg4 = new RegisteredCourses(4,88,student4,c1);
+//        rg4.addRegisteredCourse();
+//        RegisteredCourses rg5 = new RegisteredCourses(5,91,student5,c1);
+//        rg5.addRegisteredCourse();
+
+//        Lecturer l = new Lecturer();
+//        l.displayStudents();
+
+        Lecturer l = new Lecturer();
+        //System.out.println(l.login(1,"12345678"));
+        l.displayStudents();
+
     }
 
     public static void checkDirectoryContents(File dir) {

@@ -1,5 +1,6 @@
 package GradingSystem;
 
+import BinaryFileManager.Manager;
 import BinaryFileManager.ReaderManager;
 import BinaryFileManager.WriterManager;
 
@@ -84,6 +85,8 @@ public class RegisteredCourses implements Serializable,RManager {
         Thread write = new Thread(wm);
         write.setName("threadWrite to registered courses");
         write.start();
+        //wait till thread is dead
+        while(write.isAlive()) {}
         return  wm.isWritten();
     }
 
@@ -93,6 +96,8 @@ public class RegisteredCourses implements Serializable,RManager {
         Thread read = new Thread(rm);
         read.setName("threadRead to registered courses");
         read.start();
+        //wait till thread is dead
+        while(read.isAlive()) {}
         if (rm.getRes() == null){
             System.out.println("Cant read from registered courses file");
         }else{
