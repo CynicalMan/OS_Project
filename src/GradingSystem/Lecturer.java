@@ -49,15 +49,45 @@ public class Lecturer implements Login, Serializable ,RManager{
         loadFromFile();
         return Lecturers;
     }
-    public void displayStudents(){
+    public void displayStudents(int id){
         ArrayList<RegisteredCourses> arr = new ArrayList<RegisteredCourses>();
         RegisteredCourses regCourses = new RegisteredCourses();
-        arr = regCourses.returnStudents(this);
+        arr = regCourses.returnStudents(this.getLecturerById(id));
 
         //display arr
         System.out.println("array :   ");
-        System.out.println(arr);
+        for (int i = 0; i < arr.size(); i++) {
+            System.out.println(arr.get(i).toString());
+        }
         System.out.println("array end :   ");
+    }
+
+    public void searchStudentGrade(int stId){
+        RegisteredCourses regCourses = new RegisteredCourses();
+        ArrayList<RegisteredCourses> rg = new ArrayList<RegisteredCourses>();
+        rg = regCourses.returnStudent(stId);
+
+        //display arr
+        System.out.println("name :   ");
+        System.out.println(rg.get(0).getStud().getName() + "\n");
+        for (int i = 0; i < rg.size(); i++) {
+            System.out.println(rg.get(i).getGrade());
+        }
+        System.out.println("grade end :   ");
+    }
+
+    public void updateStudentGrade(int stId, int newGrade){
+        RegisteredCourses regCourses = new RegisteredCourses();
+        ArrayList<RegisteredCourses> rg = new ArrayList<RegisteredCourses>();
+        rg = regCourses.returnStudent(stId);
+
+        //display arr
+        System.out.println("name :   ");
+        System.out.println(rg.get(0).getStud().getName() + "\n");
+        for (int i = 0; i < rg.size(); i++) {
+            System.out.println(rg.get(i).getGrade());
+        }
+        System.out.println("grade end :   ");
     }
 
     @Override

@@ -68,8 +68,9 @@ public class Student implements Login, Serializable, RManager {
     }
 
     private Student getStudentById(int  Id) {
+        loadFromFile();
         for (int i = 0; i < Students.size(); i++) {
-            if (Students.get(i).id == Id){
+            if (Students.get(i).getId() == Id){
                 return Students.get(i);
             }
         }
@@ -91,14 +92,16 @@ public class Student implements Login, Serializable, RManager {
         loadFromFile();
         return Students;
     }
-    public void displayGrades(){
+    public void displayGrades(int id){
         ArrayList<RegisteredCourses> arr = new ArrayList<RegisteredCourses>();
         RegisteredCourses regCourses = new RegisteredCourses();
-        arr = regCourses.returnStudentCourses(this);
+        arr = regCourses.returnStudentCourses(this.getStudentById(id));
 
         //display arr
         System.out.println("array :   ");
-        System.out.println(arr);
+        for (int i = 0; i < arr.size(); i++) {
+            System.out.println(arr.get(i).getStud().getName() + " " + arr.get(i).getGrade());
+        }
         System.out.println("array end :   ");
 
     }
