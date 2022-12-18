@@ -104,5 +104,9 @@ public class RegisteredCourses implements Serializable,RManager {
             RegCourses = (ArrayList<RegisteredCourses>) rm.getRes();
         }
     }
+    @Override
+    public String toString() {
+        return "\nID: " + id + " Grade:" + grade;
+    }
 
 }

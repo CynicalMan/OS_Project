@@ -44,7 +44,11 @@ public class Lecturer implements Login, Serializable ,RManager{
         }
         return null;
     }
-    
+
+    public ArrayList<Lecturer> listLecturers() {
+        loadFromFile();
+        return Lecturers;
+    }
     public void displayStudents(){
         ArrayList<RegisteredCourses> arr = new ArrayList<RegisteredCourses>();
         RegisteredCourses regCourses = new RegisteredCourses();
@@ -93,5 +97,9 @@ public class Lecturer implements Login, Serializable ,RManager{
         }else{
             Lecturers = (ArrayList<Lecturer>) rm.getRes();
         }
+    }
+    @Override
+    public String toString() {
+        return "\nID: " + id + " Name:" + name + "\n" + "Password: " + password;
     }
 }

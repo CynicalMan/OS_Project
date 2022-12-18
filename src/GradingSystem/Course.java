@@ -73,4 +73,8 @@ public class Course implements Serializable,RManager {
             Courses = (ArrayList<Course>) rm.getRes();
         }
     }
+    @Override
+    public String toString() {
+        return "\nID: " + id + " Name:" + name + "\n" + "Credit Hours: " + creditHours;
+    }
 }

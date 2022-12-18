@@ -87,6 +87,10 @@ public class Student implements Login, Serializable, RManager {
         return false;
     }
 
+    public ArrayList<Student> listStudents() {
+        loadFromFile();
+        return Students;
+    }
     public void displayGrades(){
         ArrayList<RegisteredCourses> arr = new ArrayList<RegisteredCourses>();
         RegisteredCourses regCourses = new RegisteredCourses();
@@ -128,5 +132,10 @@ public class Student implements Login, Serializable, RManager {
         //wait till thread is dead
         while(write.isAlive()) {}
         return  wm.isWritten();
+    }
+    @Override
+    public String toString() {
+        return "\nID: " + id + " Name:" + name + "\n" + "Password: " + password +
+                "\nGPA: " + gpa + " Year: " + year + " Major: " + major;
     }
 }
