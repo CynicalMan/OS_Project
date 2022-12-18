@@ -7,16 +7,35 @@ package GradingSystem;
 //    IS
 //}
 
-public class Student {
+import BinaryFileManager.ReaderManager;
+import BinaryFileManager.WriterManager;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Objects;
 
+public class Student implements Login, Serializable, RManager {
     private double gpa;
     private String name;
     private int id;
     private String password;
     private int year;
     private String major;
-//    private Minor minor;
+
+    //Bin File Manager
+    private final String studentFileName = "Student.bin";
+    public static ArrayList<Student> Students = new ArrayList<Student>();
+
+    public Student(){}
+
+    public Student(double gpa, String name, int id, String password, int year, String major) {
+        this.gpa = gpa;
+        this.name = name;
+        this.id = id;
+        this.password = password;
+        this.year = year;
+        this.major = major;
+    }
 
     //setters
 
@@ -48,7 +67,62 @@ public class Student {
         return password;
     }
 
-    public int getSubjectGrade(RegisteredCoursse reSub){
-        return reSub.getGrade();
+    private Student getStudentById(int  Id) {
+        for (int i = 0; i < Students.size(); i++) {
+            if (Students.get(i).id == Id){
+                return Students.get(i);
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean login(int id, String password) {
+        loadFromFile();
+        Student stud = new Student();
+        stud = stud.getStudentById(id);
+        if (stud != null && Objects.equals(stud.getPassword(), password)){
+            return true;
+        }
+        return false;
+    }
+
+    public void displayGrades(){
+        ArrayList<RegisteredCourses> arr = new ArrayList<RegisteredCourses>();
+        RegisteredCourses regCourses = new RegisteredCourses();
+        arr = regCourses.returnStudentCourses(this);
+
+        //display arr
+        System.out.println("array :   ");
+        System.out.println(arr);
+        System.out.println("array end :   ");
+
+    }
+
+    public boolean addStudent(Student stud){
+        loadFromFile();
+        Students.add(stud);
+        return commitToFile();
+    }
+
+    @Override
+    public void loadFromFile() {
+        ReaderManager rm = new ReaderManager(studentFileName);
+        Thread read = new Thread(rm);
+        read.setName("threadRead to student");
+        read.start();
+        if (rm.getRes() == null){
+            System.out.println("Cant read from student file");
+        }else{
+            Students = (ArrayList<Student>) rm.getRes();
+        }
+    }
+
+    public boolean commitToFile(){
+        WriterManager wm = new WriterManager(studentFileName,Students);
+        Thread write = new Thread(wm);
+        write.setName("threadWrite to student");
+        write.start();
+        return  wm.isWritten();
     }
 }
