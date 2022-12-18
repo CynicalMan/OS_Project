@@ -73,9 +73,9 @@ public class RegisteredCourses implements Serializable,RManager {
         return arr;
     }
 
-    public boolean addRegisteredCourse(RegisteredCourses reg){
+    public boolean addRegisteredCourse(){
         loadFromFile();
-        RegCourses.add(reg);
+        RegCourses.add(this);
         return commitToFile();
     }
 

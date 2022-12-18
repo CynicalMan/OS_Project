@@ -63,9 +63,9 @@ public class Lecturer implements Login, Serializable ,RManager{
         return lect != null && Objects.equals(lect.getPassword(), password);
     }
 
-    public boolean addLecturer(Lecturer lect){
+    public boolean addLecturer(){
         loadFromFile();
-        Lecturers.add(lect);
+        Lecturers.add(this);
         return commitToFile();
     }
 

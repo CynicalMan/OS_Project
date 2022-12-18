@@ -99,9 +99,9 @@ public class Student implements Login, Serializable, RManager {
 
     }
 
-    public boolean addStudent(Student stud){
+    public boolean addStudent(){
         loadFromFile();
-        Students.add(stud);
+        Students.add(this);
         return commitToFile();
     }
 

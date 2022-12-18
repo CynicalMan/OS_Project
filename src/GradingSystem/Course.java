@@ -13,7 +13,7 @@ public class Course implements Serializable,RManager {
     private int creditHours;
 
     //Bin File Manager
-    private final String CoursesFileName = "Courses.bin";
+    private final String CoursesFileName = "Course.bin";
     public static ArrayList<Course> Courses = new ArrayList<Course>();
 
     public int getId() {
@@ -35,9 +35,18 @@ public class Course implements Serializable,RManager {
         return lect;
     }
 
-    public boolean addCourse(Course course){
+    public Course(){}
+
+    public Course(int id, String name, Lecturer lect, int creditHours) {
+        this.id = id;
+        this.name = name;
+        this.lect = lect;
+        this.creditHours = creditHours;
+    }
+
+    public boolean addCourse(){
         loadFromFile();
-        Courses.add(course);
+        Courses.add(this);
         return commitToFile();
     }
     public boolean commitToFile(){
