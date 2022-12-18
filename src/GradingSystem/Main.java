@@ -65,6 +65,7 @@ public class Main {
 //            System.out.println(arr.get(i).toString());
 //        }
         Lecturer l = new Lecturer();
+        l.updateStudentGrade(2,100);
         l.searchStudentGrade(2);
     }
 

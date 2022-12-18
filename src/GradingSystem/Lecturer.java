@@ -62,32 +62,18 @@ public class Lecturer implements Login, Serializable ,RManager{
         System.out.println("array end :   ");
     }
 
-    public void searchStudentGrade(int stId){
-        RegisteredCourses regCourses = new RegisteredCourses();
-        ArrayList<RegisteredCourses> rg = new ArrayList<RegisteredCourses>();
-        rg = regCourses.returnStudent(stId);
-
-        //display arr
+    public RegisteredCourses searchStudentGrade(int stId){
+        RegisteredCourses reg = new RegisteredCourses();
+        reg = reg.returnRegCourse(stId);
+        //display grade
         System.out.println("name :   ");
-        System.out.println(rg.get(0).getStud().getName() + "\n");
-        for (int i = 0; i < rg.size(); i++) {
-            System.out.println(rg.get(i).getGrade());
-        }
-        System.out.println("grade end :   ");
+        System.out.println(reg.getStud().getName() + "| grade : " + reg.getGrade());
+        return reg;
     }
 
-    public void updateStudentGrade(int stId, int newGrade){
-        RegisteredCourses regCourses = new RegisteredCourses();
-        ArrayList<RegisteredCourses> rg = new ArrayList<RegisteredCourses>();
-        rg = regCourses.returnStudent(stId);
-
-        //display arr
-        System.out.println("name :   ");
-        System.out.println(rg.get(0).getStud().getName() + "\n");
-        for (int i = 0; i < rg.size(); i++) {
-            System.out.println(rg.get(i).getGrade());
-        }
-        System.out.println("grade end :   ");
+    public boolean updateStudentGrade(int stId, int newGrade){
+        RegisteredCourses regCourses = this.searchStudentGrade(stId);
+        return regCourses.updateGrade(regCourses, newGrade);
     }
 
     @Override

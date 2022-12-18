@@ -56,10 +56,6 @@ public class RegisteredCourses implements Serializable,RManager {
         ArrayList<RegisteredCourses> arr = new ArrayList<RegisteredCourses>();
         loadFromFile();
         this.listRegisteredCourses();
-//        for (int i = 0; i < RegCourses.size(); i++) {
-//            System.out.println(RegCourses.get(i).stud.getId());
-//        }
-//        System.out.println(st.getId());
         for (int i = 0; i < RegCourses.size(); i++) {
             if (RegCourses.get(i).getStud().getId() == st.getId()) {
                 arr.add(RegCourses.get(i));
@@ -72,10 +68,7 @@ public class RegisteredCourses implements Serializable,RManager {
         ArrayList<RegisteredCourses> arr = new ArrayList<RegisteredCourses>();
         loadFromFile();
         this.listRegisteredCourses();
-//        for (int i = 0; i < RegCourses.size(); i++) {
-//            System.out.println(RegCourses.get(i).sub.getLect().getId());
-//        }
-//        System.out.println(lect.getId());
+
         for (int i = 0; i < RegCourses.size(); i++) {
             if (RegCourses.get(i).sub.getLect().getId() == lect.getId()) {
                 arr.add(RegCourses.get(i));
@@ -84,15 +77,22 @@ public class RegisteredCourses implements Serializable,RManager {
         return arr;
     }
 
-    public ArrayList<RegisteredCourses> returnStudent(int id){
+    public RegisteredCourses returnRegCourse(int id){
         loadFromFile();
-        ArrayList<RegisteredCourses> rgCourses = new ArrayList<RegisteredCourses>();
         for (int i = 0; i < RegCourses.size(); i++) {
             if (RegCourses.get(i).getStud().getId() == id) {
-                rgCourses.add(RegCourses.get(i));
+                return RegCourses.get(i);
             }
         }
-        return rgCourses;
+        return null;
+    }
+
+    public boolean updateGrade(RegisteredCourses rg,int newGrade){
+        loadFromFile();
+        int oldGrade = rg.getGrade();
+        RegCourses.get(rg.getId()-1).grade = newGrade;
+        System.out.println("student name : " + rg.getStud().getName() + "from " + oldGrade + " to " + newGrade);
+        return commitToFile();
     }
 
     public boolean addRegisteredCourse(){
