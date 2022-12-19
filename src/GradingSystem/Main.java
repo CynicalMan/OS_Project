@@ -38,6 +38,17 @@ public class Main {
 //        RegisteredCourses rg5 = new RegisteredCourses(5,91,student5,c1);
 //        rg5.addRegisteredCourse();
 
+
+
+        //CONSOLE APPLICATION
+
+
+
+        Scanner choice = new Scanner(System.in);
+        System.out.println("Enter (1) If student.\n" +
+                "Enter (2) If Lecturer");
+        int ch = choice.nextInt();
+
         Scanner idUser = new Scanner(System.in);
         System.out.println("Please enter your ID: ");
         int id = idUser.nextInt();
@@ -46,64 +57,83 @@ public class Main {
         System.out.println("Please enter your Password: ");
         String password = passUser.nextLine();
 
-        Student s = new Student();
-        Lecturer l = new Lecturer();
+        if (ch == 1){
+            Student s = new Student();
 
-        if (s.login(id,password)){
-            System.out.println("\nLogin Successfully as a Student");
-            int x = 1;
-            while(x==1){
-                System.out.println("Enter (1) To view your grades.\n" +
-                        "Enter (0) To exit.");
-                Scanner option = new Scanner(System.in);
-                int op = option.nextInt();
-                if (op == 1){
-                    s.displayGrades(id);
+            if (s.login(id,password)){
+                System.out.println("\nLogin Successfully as a Student");
+                int x = 1;
+                while(x==1){
+                    System.out.println("Enter (1) To view your grades.\n" +
+                            "Enter (0) To exit.");
+                    Scanner option = new Scanner(System.in);
+                    int op = option.nextInt();
+                    if (op == 1){
+                        s.displayGrades(id);
+                    }
+                    else if (op == 0){
+                        x = 0;
+                        System.out.println("\nExit Successfully");
+                    }
                 }
-                else if (op == 0){
-                    x = 0;
-                    System.out.println("\nExit Successfully");
+            }
+            else{
+                System.out.println("Invalid ID or Password. Exiting...");
+            }
+        }
+        else if (ch == 2){
+            Lecturer l = new Lecturer();
+
+            if (l.login(id,password)){
+                System.out.println("\nLogin Successfully as a Lecturer");
+                int x = 1;
+                while(x==1){
+                    System.out.println("Enter (1) To Display all students enrolled in your course.\n" +
+                            "Enter (2) To search for a student.\n" +
+                            "Enter (3) To update a student grade.\n" +
+                            "Enter (0) To exit.");
+                    Scanner option = new Scanner(System.in);
+                    int op = option.nextInt();
+                    if (op == 1){
+                        l.displayStudents(id);
+                    }
+                    else if (op == 2){
+                        Scanner stID = new Scanner(System.in);
+                        System.out.println("\nPlease enter student ID: ");
+                        int studentID = stID.nextInt();
+                        l.searchStudentGrade(studentID);
+                    }
+                    else if (op == 3){
+                        Scanner stID = new Scanner(System.in);
+                        System.out.println("\nPlease enter student ID: ");
+                        int studentID = stID.nextInt();
+
+                        Scanner newGrade = new Scanner(System.in);
+                        System.out.println("\nPlease enter the student's new grade: ");
+                        int grade = newGrade.nextInt();
+
+                        l.updateStudentGrade(studentID, grade);
+
+                    }
+                    else if (op == 0){
+                        x = 0;
+                        System.out.println("\nExit Successfully");
+                    }
+
                 }
+            }
+            else{
+                System.out.println("Invalid ID or Password. Exiting...");
             }
         }
 
-        if (l.login(id,password)){
-            System.out.println("\nLogin Successfully as a Lecturer");
-            int x = 1;
-            while(x==1){
-                System.out.println("Enter (1) To Display all students enrolled in your course.\n" +
-                        "Enter (2) To search for a student.\n" +
-                        "Enter (3) To update a student grade.\n" +
-                        "Enter (0) To exit.");
-                Scanner option = new Scanner(System.in);
-                int op = option.nextInt();
-                if (op == 1){
-                    l.displayStudents(id);
-                }
-                else if (op == 2){
-                    Scanner stID = new Scanner(System.in);
-                    System.out.println("\nPlease enter student ID: ");
-                    int studentID = stID.nextInt();
-                    l.searchStudentGrade(studentID);
-                }
-                else if (op == 3){
-                    Scanner stID = new Scanner(System.in);
-                    System.out.println("\nPlease enter student ID: ");
-                    int studentID = stID.nextInt();
 
-                    Scanner newGrade = new Scanner(System.in);
-                    System.out.println("\nPlease enter the student's new grade: ");
-                    int grade = newGrade.nextInt();
 
-                    l.updateStudentGrade(studentID, grade);
+        //CONSOLE APPLICATION
 
-                }
-                else if (op == 0){
-                    x = 0;
-                    System.out.println("\nExit Successfully");
-                }
-            }
-        }
+
+
+
 //
 //        Lecturer l = new Lecturer();
 //        l.displayStudents(1);

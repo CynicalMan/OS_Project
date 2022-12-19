@@ -66,8 +66,7 @@ public class Lecturer implements Login, Serializable ,RManager{
         RegisteredCourses reg = new RegisteredCourses();
         reg = reg.returnRegCourse(stId);
         //display grade
-        System.out.println("name :   ");
-        System.out.println(reg.getStud().getName() + " | grade : " + reg.getGrade());
+        System.out.println("Name: " + reg.getStud().getName() + " | grade : " + reg.getGrade());
         return reg;
     }
 

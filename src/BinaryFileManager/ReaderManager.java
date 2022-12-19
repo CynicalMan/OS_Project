@@ -24,7 +24,7 @@ public class ReaderManager implements Runnable {
                 VariableGlobM.resource.acquire();
             }
             VariableGlobM.rmutex.release();
-            VariableGlobM.serviceQueue.release();
+           VariableGlobM.serviceQueue.release();
             System.out.println("Thread "+Thread.currentThread().getName() + " is READING");
             // Call Read Function
             this.res = this.read(filepath);
