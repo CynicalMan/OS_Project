@@ -98,11 +98,11 @@ public class Student implements Login, Serializable, RManager {
         arr = regCourses.returnStudentCourses(this.getStudentById(id));
 
         //display arr
-        System.out.println("array :   ");
+        System.out.println();
         for (int i = 0; i < arr.size(); i++) {
-            System.out.println(arr.get(i).getStud().getName() + " " + arr.get(i).getGrade());
+            System.out.println(arr.get(i).getStud().getName() + " " + arr.get(i).getSub().getName() + " " + arr.get(i).getGrade());
         }
-        System.out.println("array end :   ");
+        System.out.println();
 
     }
 
@@ -138,7 +138,6 @@ public class Student implements Login, Serializable, RManager {
     }
     @Override
     public String toString() {
-        return "\nID: " + id + " Name:" + name + "\n" + "Password: " + password +
-                "\nGPA: " + gpa + " Year: " + year + " Major: " + major;
+        return "\nID: " + id + " | Name:" + name + "\n" + "GPA: " + gpa + " | Year: " + year + " | Major: " + major;
     }
 }

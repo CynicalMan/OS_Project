@@ -75,6 +75,6 @@ public class Course implements Serializable,RManager {
     }
     @Override
     public String toString() {
-        return "\nID: " + id + " Name:" + name + "\n" + "Credit Hours: " + creditHours;
+        return "\nID: " + id + " | Name:" + name + "\n" + "Credit Hours: " + creditHours;
     }
 }

@@ -91,7 +91,7 @@ public class RegisteredCourses implements Serializable,RManager {
         loadFromFile();
         int oldGrade = rg.getGrade();
         RegCourses.get(rg.getId()-1).grade = newGrade;
-        System.out.println("student name : " + rg.getStud().getName() + "from " + oldGrade + " to " + newGrade);
+        System.out.println("Student Name: " + rg.getStud().getName() + " from " + oldGrade + " to " + newGrade);
         return commitToFile();
     }
 
@@ -132,7 +132,7 @@ public class RegisteredCourses implements Serializable,RManager {
     }
     @Override
     public String toString() {
-        return "\nID: " + id + " Grade:" + grade + "\nStudent Data: " + this.getStud().toString() + "\nCourse Data: " + this.getSub().toString();
+        return "\nID: " + id + " | Grade: " + grade + "\nStudent Data: " + this.getStud().toString() + "\nCourse Data: " + this.getSub().toString();
     }
 
 }

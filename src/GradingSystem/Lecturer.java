@@ -55,11 +55,11 @@ public class Lecturer implements Login, Serializable ,RManager{
         arr = regCourses.returnStudents(this.getLecturerById(id));
 
         //display arr
-        System.out.println("array :   ");
+        System.out.println();
         for (int i = 0; i < arr.size(); i++) {
             System.out.println(arr.get(i).toString());
         }
-        System.out.println("array end :   ");
+        System.out.println();
     }
 
     public RegisteredCourses searchStudentGrade(int stId){
@@ -67,7 +67,7 @@ public class Lecturer implements Login, Serializable ,RManager{
         reg = reg.returnRegCourse(stId);
         //display grade
         System.out.println("name :   ");
-        System.out.println(reg.getStud().getName() + "| grade : " + reg.getGrade());
+        System.out.println(reg.getStud().getName() + " | grade : " + reg.getGrade());
         return reg;
     }
 

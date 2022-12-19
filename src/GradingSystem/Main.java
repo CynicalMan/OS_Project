@@ -3,6 +3,7 @@ package GradingSystem;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
@@ -36,6 +37,73 @@ public class Main {
 //        rg4.addRegisteredCourse();
 //        RegisteredCourses rg5 = new RegisteredCourses(5,91,student5,c1);
 //        rg5.addRegisteredCourse();
+
+        Scanner idUser = new Scanner(System.in);
+        System.out.println("Please enter your ID: ");
+        int id = idUser.nextInt();
+
+        Scanner passUser = new Scanner(System.in);
+        System.out.println("Please enter your Password: ");
+        String password = passUser.nextLine();
+
+        Student s = new Student();
+        Lecturer l = new Lecturer();
+
+        if (s.login(id,password)){
+            System.out.println("\nLogin Successfully as a Student");
+            int x = 1;
+            while(x==1){
+                System.out.println("Enter (1) To view your grades.\n" +
+                        "Enter (0) To exit.");
+                Scanner option = new Scanner(System.in);
+                int op = option.nextInt();
+                if (op == 1){
+                    s.displayGrades(id);
+                }
+                else if (op == 0){
+                    x = 0;
+                    System.out.println("\nExit Successfully");
+                }
+            }
+        }
+
+        if (l.login(id,password)){
+            System.out.println("\nLogin Successfully as a Lecturer");
+            int x = 1;
+            while(x==1){
+                System.out.println("Enter (1) To Display all students enrolled in your course.\n" +
+                        "Enter (2) To search for a student.\n" +
+                        "Enter (3) To update a student grade.\n" +
+                        "Enter (0) To exit.");
+                Scanner option = new Scanner(System.in);
+                int op = option.nextInt();
+                if (op == 1){
+                    l.displayStudents(id);
+                }
+                else if (op == 2){
+                    Scanner stID = new Scanner(System.in);
+                    System.out.println("\nPlease enter student ID: ");
+                    int studentID = stID.nextInt();
+                    l.searchStudentGrade(studentID);
+                }
+                else if (op == 3){
+                    Scanner stID = new Scanner(System.in);
+                    System.out.println("\nPlease enter student ID: ");
+                    int studentID = stID.nextInt();
+
+                    Scanner newGrade = new Scanner(System.in);
+                    System.out.println("\nPlease enter the student's new grade: ");
+                    int grade = newGrade.nextInt();
+
+                    l.updateStudentGrade(studentID, grade);
+
+                }
+                else if (op == 0){
+                    x = 0;
+                    System.out.println("\nExit Successfully");
+                }
+            }
+        }
 //
 //        Lecturer l = new Lecturer();
 //        l.displayStudents(1);
@@ -64,9 +132,9 @@ public class Main {
 //        for (int i = 0; i < arr.size(); i++) {
 //            System.out.println(arr.get(i).toString());
 //        }
-        Lecturer l = new Lecturer();
-        l.updateStudentGrade(2,100);
-        l.searchStudentGrade(2);
+//        Lecturer l = new Lecturer();
+//        l.updateStudentGrade(2,100);
+//        l.searchStudentGrade(2);
     }
 
     public static void checkDirectoryContents(File dir) {
