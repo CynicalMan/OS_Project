@@ -90,6 +90,12 @@ The starvation is solved using a queue that preserves ordering of requests (sign
 
 ## Introduction
 
+
+
+https://user-images.githubusercontent.com/105289282/208493670-fb73baf7-f38c-4d97-91a7-58e501ace8a1.mp4
+
+
+
 It is a System that display the grades of the Students and Enable the Lecturer to display the students of their course, search a student and his grade, and update the grade of the student's grade
 
 ## Reader-Writer in University Grading System
