@@ -2,23 +2,34 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
-    <children>
-        <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <columns>
-                <TableColumn id="id" prefWidth="30.20001184940338" text="ID" />
-                <TableColumn id="name" prefWidth="129.79998207092285" text="Name" />
-                <TableColumn id="subjects" prefWidth="521.4000549316406" text="Subjects">
-                    <columns>
-                        <TableColumn minWidth="0.0" prefWidth="84.20001220703125" text="Column X" />
-                        <TableColumn prefWidth="88.5999755859375" text="Column X" />
-                        <TableColumn prefWidth="90.60003662109375" text="Column X" />
-                        <TableColumn prefWidth="79.79998779296875" text="Column X" />
-                        <TableColumn prefWidth="100.20004272460938" text="Column X" />
-                    </columns></TableColumn>
-            </columns>
-        </TableView>
-    </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj.Lecturer">
+   <children>
+      <Button fx:id="searchBtn" layoutX="409.0" layoutY="26.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="Search" />
+      <Label layoutX="77.0" layoutY="31.0" prefHeight="20.0" prefWidth="118.0" text="Insert Student Id :">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="studentIdField1" layoutX="211.0" layoutY="29.0" />
+      <TableView fx:id="LecturerTable" layoutX="93.0" layoutY="72.0" prefHeight="200.0" prefWidth="400.0">
+        <columns>
+          <TableColumn fx:id="LecturerTableColumn1" prefWidth="124.19999694824219" text="Student ID" />
+          <TableColumn fx:id="LecturerTableColumn2" prefWidth="135.4000244140625" text="Student Name" />
+            <TableColumn fx:id="LecturerTableColumn3" prefWidth="140.5999755859375" text="Course Grade" />
+        </columns>
+      </TableView>
+      <Button fx:id="backToLogin" layoutX="145.0" layoutY="352.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Back to login" />
+      <Button fx:id="exitBtn" layoutX="329.0" layoutY="352.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="111.0" text="Exit" />
+      <TextField fx:id="studentIdField2" layoutX="160.0" layoutY="301.0" />
+      <TextField fx:id="studentNewGrade" layoutX="330.0" layoutY="301.0" />
+      <Label layoutX="14.0" layoutY="305.0" prefHeight="20.0" prefWidth="150.0" text="Update Student Grade">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="160.0" layoutY="283.0" text="Student ID" />
+      <Label layoutX="330.0" layoutY="283.0" text="Student New Grade" />
+      <Button fx:id="updateBtn" layoutX="513.0" layoutY="301.0" mnemonicParsing="false" text="Update" />
+   </children>
 </AnchorPane>
-

@@ -35,7 +35,7 @@ public class Lecturer implements Login, Serializable ,RManager{
         return password;
     }
 
-    private Lecturer getLecturerById(int  Id) {
+    public Lecturer getLecturerById(int  Id) {
         for (int i = 0; i < Lecturers.size(); i++) {
             if (Lecturers.get(i).id == Id){
                 return Lecturers.get(i);
@@ -48,7 +48,7 @@ public class Lecturer implements Login, Serializable ,RManager{
         loadFromFile();
         return Lecturers;
     }
-    public void displayStudents(int id){
+    public ArrayList<RegisteredCourses> displayStudents(int id){
         ArrayList<RegisteredCourses> arr = new ArrayList<RegisteredCourses>();
         RegisteredCourses regCourses = new RegisteredCourses();
         arr = regCourses.returnStudents(this.getLecturerById(id));
@@ -59,6 +59,7 @@ public class Lecturer implements Login, Serializable ,RManager{
             System.out.println(arr.get(i).toString());
         }
         System.out.println();
+        return arr;
     }
 
     public RegisteredCourses searchStudentGrade(int stId){

@@ -32,14 +32,25 @@ public class Login {
     @FXML
     private PasswordField pass;
 
+    public Student getS() {
+        return s;
+    }
+
+    public Lecturer getLect() {
+        return lect;
+    }
+
+    private Student s;
+    private Lecturer lect;
+
     public void userLogin(ActionEvent event) throws IOException {
         checkLogin();
     }
 
     private void checkLogin() throws IOException {
         Main m = new Main();
-        Student s = new Student();
-        Lecturer lect = new Lecturer();
+        s = new Student();
+        lect = new Lecturer();
         if(s.login(Integer.parseInt(id.getText()),pass.getText())) {
             wrongLogin.setText("Success!");
             m.changeScene("Student.fxml");

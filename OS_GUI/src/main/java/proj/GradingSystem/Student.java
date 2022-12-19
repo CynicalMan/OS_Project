@@ -67,7 +67,7 @@ public class Student implements Login, Serializable, RManager {
         return password;
     }
 
-    private Student getStudentById(int  Id) {
+    public Student getStudentById(int  Id) {
         loadFromFile();
         for (int i = 0; i < Students.size(); i++) {
             if (Students.get(i).getId() == Id){
