@@ -1,7 +1,5 @@
 package ReaderWriter;
 
-import ReaderWriter.VariablesGlob;
-
 class Reader implements Runnable {
     @Override
     public void run() {
@@ -12,9 +10,10 @@ class Reader implements Runnable {
             if (VariablesGlob.readerCount == 1) {
                 VariablesGlob.resource.acquire();
             }
-            VariablesGlob.serviceQueue.release();
             VariablesGlob.rmutex.release();
+            VariablesGlob.serviceQueue.release();
             System.out.println("Thread "+Thread.currentThread().getName() + " is READING");
+            System.out.println("Thread "+Thread.currentThread().getName() + " sm is " + VariablesGlob.sm + " read");
             Thread.sleep(1500);
             System.out.println("Thread "+Thread.currentThread().getName() + " has finished READING");
             VariablesGlob.rmutex.acquire();

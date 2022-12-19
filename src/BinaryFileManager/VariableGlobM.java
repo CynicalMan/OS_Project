@@ -1,8 +1,8 @@
-package ReaderWriter;
+package BinaryFileManager;
 
 import java.util.concurrent.Semaphore;
 
-public class VariablesGlob {
+public class VariableGlobM {
     static int readerCount = 0;
     static int sm = 0;
     static Semaphore serviceQueue = new Semaphore(1);
