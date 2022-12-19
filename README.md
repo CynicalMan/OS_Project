@@ -1,5 +1,12 @@
 # Readers and Writers Problem
 
+illustration of reader \ writer problem in arabic :
+
+
+https://user-images.githubusercontent.com/95493823/208429482-e971ddbf-06a5-46a2-b176-8812db474057.mp4
+
+
+
 ## Introduction
 
 This problem occurs when many threads of execution try to access the same shared resources at a time. There are N readers to read data and K Writers to write data to shared resources.
