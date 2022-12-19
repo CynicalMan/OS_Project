@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj.Student">
+    <children>
+        <Label layoutX="37.0" layoutY="42.0" text="Student ID" />
+        <Label layoutX="266.0" layoutY="42.0" text="Student Name" />
+        <Button fx:id="exitBtn" layoutX="346.0" layoutY="398.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Exit" />
+        <TextField fx:id="studentIdFiled3" layoutX="107.0" layoutY="38.0" />
+        <TextField fx:id="studentFieldName" layoutX="347.0" layoutY="37.0" />
+        <TableView fx:id="studentTable" layoutX="106.0" layoutY="76.0" prefHeight="311.0" prefWidth="376.0">
+            <columns>
+                <TableColumn fx:id="studentTableColumn1" prefWidth="190.59996032714844" text="Course Name" />
+                <TableColumn fx:id="studentTableColumn2" prefWidth="185.4000244140625" text="Course Grade" />
+            </columns>
+        </TableView>
+      <Button fx:id="backToLogin" layoutX="163.0" layoutY="397.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Back to Login" />
+    </children>
+</AnchorPane>
