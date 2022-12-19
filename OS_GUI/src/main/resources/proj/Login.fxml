@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj.Login">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="297.0" style="-fx-background-color: #263F73;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="61.0" layoutY="141.0" prefHeight="26.0" prefWidth="174.0" text="Education Is Key" textFill="#f4f2f2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="35.0" layoutY="200.0" prefHeight="26.0" prefWidth="228.0" text="To Opportunity" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Separator layoutX="29.0" layoutY="186.0" prefHeight="2.0" prefWidth="240.0" />
+         </children></AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="6.0" layoutY="14.0" prefHeight="72.0" prefWidth="289.0" text="Grading System">
+               <font>
+                  <Font name="Arial Bold" size="33.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="pass" layoutX="68.0" layoutY="187.0" promptText="Password" />
+            <TextField fx:id="id" layoutX="69.0" layoutY="130.0" promptText="ID" />
+            <Label layoutX="68.0" layoutY="104.0" prefHeight="18.0" prefWidth="49.0" text="ID :" />
+            <Label layoutX="68.0" layoutY="167.0" prefHeight="18.0" prefWidth="60.0" text="Password :" />
+            <Button fx:id="resetBtn" layoutX="151.0" layoutY="306.0" mnemonicParsing="false" onAction="#reset" prefHeight="33.0" prefWidth="73.0" text="Reset" />
+            <Button fx:id="loginBtn" layoutX="68.0" layoutY="306.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="33.0" prefWidth="73.0" text="Login" />
+            <Label fx:id="wrongLogin" layoutX="142.0" layoutY="78.0" prefHeight="18.0" prefWidth="0.0" />
+            <Label fx:id="testL" layoutX="128.0" layoutY="283.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
